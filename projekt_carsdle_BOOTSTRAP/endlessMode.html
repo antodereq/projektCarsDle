@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scriptE.js"></script>
+    <title>carsDle - endless mode</title>
+</head>
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">cars<span style="color: darkred">Dle</span>.pl</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Graj</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="carsDle.html">Standard Mode</a></li>
+                            <li><a class="dropdown-item text-danger" href="endlessMode.html">Endless Mode</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="jakGrac.html">Jak grać?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bazaSamochodow.html">Baza samochodów</a></li>
+                    <li class="nav-item"><a class="nav-link" href="oAutorze.html">O autorze i stronie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zglosBlad.php">Zgłoś błąd</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Główna zawartość -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <h1 class="fw-bold">cars<span class="text-danger">DleE</span>.pl</h1>
+        </div>
+
+        <!-- Opis trybu -->
+        <div class="bg-white p-3 rounded shadow-sm mx-auto text-center" style="max-width: 600px;">
+            <p class="mb-3 fw-bold text-wrap fs-6 fs-md-5 fs-lg-4">
+                Witaj w trybie <span class="text-danger">Endless Mode</span>! 
+                <span class="d-block d-md-inline">W tym trybie nie ma końca, a Ty musisz odgadywać samochody tak długo, jak tylko potrafisz.</span>
+            </p>
+            <div class="d-flex justify-content-between align-items-center px-3">
+                <div class="score">Score: 0</div>
+                <div class="try">Prób: 0</div>
+            </div>
+        </div>
+
+        <!-- Ukryte elementy -->
+        <div class="win" id="win">
+            <div class="winText"></div>
+        </div>
+        <div id="wylosowany" class="d-none"></div>
+
+        <!-- Pole wyszukiwania -->
+        <div class="d-flex justify-content-center my-3">
+            <input type="text" class="form-control w-75 w-md-50" id="pole_szukania" placeholder="Wyszukaj samochód...">
+        </div>
+
+        <div id="sugestie" class="text-center"></div>
+
+        <!-- Tabela samochodów -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Marka</th>
+                        <th>Model</th>
+                        <th>Rocznik</th>
+                        <th>Napędy</th>
+                        <th>Nadwozia</th>
+                        <th>Skrzynie</th>
+                        <th>Kraj</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelka"></tbody>
+            </table>
+        </div>
+
+        <div id="historia"></div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

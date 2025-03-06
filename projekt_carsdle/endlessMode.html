@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="scriptE.js"></script>
+    <title>carsDle - endless mode</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <li>
+                <a href="#">Graj</a>
+                <ul>
+                    <li><a href="carsDle.html">Standard Mode</a></li>
+                    <li><a href="endlessMode.html"><span style="color: darkred;">Endless Mode</span></a></li>
+                </ul>
+            </li>
+            <li><a href="jakGrac.html">Jak grać?</a></li>
+            <li><a href="bazaSamochodow.html">Baza samochodów</a></li>
+            <li><a href="oAutorze.html">O autorze i stronie</a></li>
+            <li><a href="zglosBlad.php">Zgłoś błąd</a></li>
+        </ul>
+    </nav>
+    <div class="tlo">
+        <div id="box">
+            <header>cars<span style="color: darkred">DleE</span>.pl</header>
+            <br>
+            <div id="info">
+                <div class="infoText">
+                    Witaj w trybie <span style="color: darkred">Endless Mode</span>! W tym trybie nie ma końca, a Ty musisz odgadywać samochody tak długo, jak tylko potrafisz. 
+                </div>
+                <div class="controls">
+                    <div class="score"></div>
+                    <div class="try"></div>
+                </div>
+            </div>
+            <div class="win" id="win">
+                <div class="winText"></div>
+            </div>
+            <br>
+            <div id="wylosowany"></div> <!--niewidzialny div, jak go usunę to wszystko sie pierdoli-->
+            <br>
+            <input type="text" id="pole_szukania" placeholder="Wyszukaj samochód...">
+        
+            <div id="sugestie"></div>
+            <div class="tlo-tabelek">
+                <div id="tabelka">
+                    <table>
+                        <tr>
+                            <th>Marka</th>
+                            <th>Model</th>
+                            <th>Rocznik</th>
+                            <th>Napedy</th>
+                            <th>Nadwozia</th>
+                            <th>Skrzynie</th>
+                            <th>Kraj</th>
+                        </tr>
+                    </table>
+                </div>
+                
+                <div id="historia"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
