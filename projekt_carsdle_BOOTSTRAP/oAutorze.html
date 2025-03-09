@@ -3,61 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <title>carsDle - zgadnij samochód</title>
+    <title>carsDle - O autorze</title>
 </head>
-<body>
-    <nav class="navbar">
-        <ul class="menu">
-            <li>
-                <a href="#">Graj</a>
-                <ul>
-                    <li><a href="carsDle.html">Standard Mode</a></li>
-                    <li><a href="endlessMode.html"><span style="color: darkred;">Endless Mode</span></a></li>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">cars<span class="text-danger">Dle</span>.pl</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Graj</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="carsDle.html">Standard Mode</a></li>
+                            <li><a class="dropdown-item text-danger" href="endlessMode.html">Endless Mode</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="jakGrac.html">Jak grać?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bazaSamochodow.html">Baza samochodów</a></li>
+                    <li class="nav-item"><a class="nav-link" href="oAutorze.html">O autorze i stronie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zglosBlad.php">Zgłoś błąd</a></li>
                 </ul>
-            </li>
-            <li><a href="jakGrac.html">Jak grać?</a></li>
-            <li><a href="bazaSamochodow.html">Baza samochodów</a></li>
-            <li><a href="oAutorze.html">O autorze i stronie</a></li>
-            <li><a href="zglosBlad.php">Zgłoś błąd</a></li>
-        </ul>
+            </div>
+        </div>
     </nav>
-    <div class="tlo">
-        <div id="box">
-            <header>cars<span style="color: darkred">Dle</span>.pl</header>
-            <br>
-            <div class="kontenerAutora">
-                <div class="sigma">
-                    <img src="img/antoniUlaczyk.jpg" alt="zdjęcie autora strony" class="autorImg">
-                    <div class="opisSamochodu"><h2>Pagani Zonda Revo Barchetta</h2><h3>2024 Muzem Pagani - Modena, Włochy</h3></div>
+
+    <div class="container mt-5">
+        <header class="text-center fw-bold mb-4">cars<span class="text-danger">Dle</span>.pl</header>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-3 mb-4">
+                    <div class="row g-3">
+                        <div class="col-md-5 text-center">
+                            <img src="img/antoniUlaczyk.jpg" alt="Zdjęcie autora" class="img-fluid rounded shadow">
+                            <p class="mt-2 text-muted">Pagani Zonda Revo Barchetta, Modena 2024</p>
+                        </div>
+                        <div class="col-md-7">
+                            <h2>O autorze:</h2>
+                            <p>Witam Cię na mojej stronie! Dzięki, że jesteś!</p>
+                            <p>Nazywam się Antoni Ulaczyk, jestem w trzeciej klasie technikum w Katowicach na kierunku programista.</p>
+                            <p>Pomysł na grę narodził się z mojej pasji do motoryzacji, sportowych samochodów oraz programowania.</p>
+                            <p>Mocno inspirowałem się stroną <a href="https://genshindle.com">genshindle.com</a>, na którą zapraszam.</p>
+                            <p>Jest to mój pierwszy większy projekt, dlatego liczę na feedback z Twojej strony :]</p>
+                            <p>Można skontaktować się ze mną przez maila: <br>ulaczykantoni@gmail.com<br> lub <a href="zglosBlad.html">zgłosić błąd przez formularz.</a></p>
+                            <p>Dziękuję za to, że grasz w carsDle!</p>
+                        </div>
+                    </div>
                 </div>
-                
-                
-                <div class="opisAutora">
-                    <h2>O autorze:</h2>
-                    <p>Witam Cię na mojej stronie! Dzięki, że jesteś!</p>
-                    <p>Nazywam się Antoni Ulaczyk, jestem w trzeciej klasie technikum w Katowicach na kierunku programista.</p>
-                    <p>Pomysł na grę narodził się z mojej pasji do motoryzacji, sportowych samochodów oraz programowania</p>
-                    <p>Mocno inspirowałem się stroną <a href="genshindle.com">genshindle.com</a>, na którą zapraszam</p>
-                    <p>Jest to mój pierwszy większy projekt, dlatego liczę na feedback z Twojej strony :]</p>
-                    <p>Można skontaktować się ze mną przez maila: <br>ulaczykantoni@gmail.com<br> lub <a href="zglosBlad.html">zgłosić błąd przez formularz.</a></p>
-                    <p>Dziękuję za to, że grasz w carsdle</p>
+                <div class="card shadow-sm p-3">
                     <h2>O stronie</h2>
-                    <p>Do napisania strony użyłem HTML i CSS, PHP oraz JavaScript jQuery</p>
-                    <p>Grafiki pochodzą ze stron takich jak
-                        <a href="https://pixabay.com/pl/">Pixabay</a>, 
+                    <p>Do napisania strony użyłem HTML i CSS, PHP oraz JavaScript jQuery.</p>
+                    <p>Grafiki pochodzą ze stron takich jak:
+                        <a href="https://pixabay.com/pl/">Pixabay</a>,
                         <a href="https://www.pexels.com/pl-pl/">Pexels</a>, oraz
                         <a href="https://unsplash.com/">Unsplash</a>
                     </p>
                     <p>Strony te udostępniają darmowe grafiki do użytku komercyjnego. Wszystko jest legalne, lecz gdyby strona naruszała czyjś dobry interes, zapraszam do kontaktu poprzez maila.</p>
                 </div>
             </div>
-
-            
-            
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

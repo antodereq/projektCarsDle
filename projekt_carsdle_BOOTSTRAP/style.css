@@ -359,7 +359,7 @@
 
 @media screen and (max-width: 1900px){
     body {
-        background: url(bg/tlo5.jpg);
+        /*background: url(bg/tlo5.jpg);*/
         background-size: cover;
         background-attachment: fixed;
     }

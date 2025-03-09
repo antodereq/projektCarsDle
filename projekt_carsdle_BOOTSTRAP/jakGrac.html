@@ -1,35 +1,111 @@
 <!DOCTYPE html>
 <html lang="pl-PL">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="script.js"></script>
-    <title>carsDle - zgadnij samochód</title>
+    <title>carsDle - Jak grać?</title>
 </head>
-<body>
-    <nav class="navbar">
-        <ul class="menu">
-            <li>
-                <a href="#">Graj</a>
-                <ul>
-                    <li><a href="carsDle.html">Standard Mode</a></li>
-                    <li><a href="endlessMode.html"><span style="color: darkred;">Endless Mode</span></a></li>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">cars<span class="text-danger">Dle</span>.pl</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Graj</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="carsDle.html">Standard Mode</a></li>
+                            <li><a class="dropdown-item text-danger" href="endlessMode.html">Endless Mode</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="jakGrac.html">Jak grać?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bazaSamochodow.html">Baza samochodów</a></li>
+                    <li class="nav-item"><a class="nav-link" href="oAutorze.html">O autorze i stronie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="zglosBlad.php">Zgłoś błąd</a></li>
                 </ul>
-            </li>
-            <li><a href="jakGrac.html">Jak grać?</a></li>
-            <li><a href="bazaSamochodow.html">Baza samochodów</a></li>
-            <li><a href="oAutorze.html">O autorze i stronie</a></li>
-            <li><a href="zglosBlad.php">Zgłoś błąd</a></li>
-        </ul>
+            </div>
+        </div>
     </nav>
-    <div class="tlo">
-        <div id="box">
-            <header>cars<span style="color: darkred">Dle</span>.pl</header>
-            <br>
-            
+
+    <!-- Główna zawartość -->
+    <div class="container mt-5">
+        <div class="text-center">
+            <header class="fw-bold">cars<span class="text-danger">Dle</span>.pl</header>
+        </div>
+
+        <!-- Opis gry -->
+        <div class="bg-white p-4 rounded shadow-sm mx-auto text-center" style="max-width: 800px;">
+            <h1 class="lead fw-bold">Jak grać w carsDle?</h1>
+            <p>Gra polega na zgadnięciu metodą prób i błędów samochodu wylosowanego przez program.</p>
+            <hr>
+            <ol class="text-start">
+                <li><span class="fw-bold">Wybieranie samochodu</span></li>
+                <p>Wybierz samochód klikając pole "Wyszukaj samochód" i <b>wpisz nazwę modelu - nie marki</b> (np. "F40", zamiast "Ferrari").</p>
+                <li><span class="fw-bold">Pola tabeli</span></li>
+                <p>Po wybraniu modelu wyświetli się tabela z cechami które świadczą o zgodności (lub nie) samochodu wybranego przez użytkownika z wylosowanym samochodem.</p>
+                <b>Pole marka</b>
+                <ul>
+                    <li>Zawiera logo marki wybranego samochodu</li>
+                    <li>
+                        🟢<span class="text-success fw-bold">Kolor zielony</span> - marki są takie same<br>
+                        🔴<span class="text-danger fw-bold">Kolor czerwony</span> - marki są różne
+                    </li>
+                </ul>
+                <b>Pole model</b>
+                <ul>
+                    <li>Zawsze kolor czarny</li>
+                    <li>Przechowuje nazwę wybranego modelu samochodu</li>
+                </ul>
+                <b>Pole rocznik</b>
+                <ul>
+                    <li>Składa się z dwóch roczników - daty początku i końca produkcji samochodu</li>
+                    <li>
+                        🟢<span class="text-success fw-bold">Kolor zielony</span> - obie daty się zgadzają<br>
+                        🟡<span class="text-warning fw-bold">Kolor żółty</span> - jedna z dat się zgadza<br>
+                        🔴<span class="text-danger fw-bold">Kolor czerwony</span> - daty są różne<br>
+                    </li>
+                    <li>Obok dat występują strzałki ułatwiające znalezienie poprawnej daty</li>
+                </ul>
+                <b>Pole napędy</b>
+                <ul>
+                    <li>Zawiera napęd(y), który posiada dany model</li>
+                    <li>
+                        🟢<span class="text-success fw-bold">Kolor zielony</span> - napędy(y) są takie same<br>
+                        🟡<span class="text-warning fw-bold">Kolor żółty</span> - jeden z napędów się zgadza<br>
+                        🔴<span class="text-danger fw-bold">Kolor czerwony</span> - napęd nie zgadza się<br>
+                    </li>
+                    <li><b>Pola nadwozia oraz skrzynie działają tak samo jak pole napędy</b></li>
+                </ul>
+                
+                <b>Pole kraj</b>
+                <ul>
+                    <li>
+                        🟢<span class="text-success fw-bold">Kolor zielony</span> - kraje są takie same<br>
+                        🔴<span class="text-danger fw-bold">Kolor czerwony</span> - kraje są różne
+                    </li>
+                </ul>
+                <li><span class="fw-bold">Zgadywanie</span></li>
+                <p>Aby zgadnąć wylosowany samochód, przeanalizuj wartości pól tabeli i na ich podstawie wybierz kolejny samochód do sprawdzenia. 
+                    Powtarzaj proces aż zgadniesz wylosowany samochód. Sprawdzone wcześniej samochody zapisują się w tabeli, aby ułatwić grę.
+                </p>
+            </ol>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
