@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
 
     const samochodyZdjecia = {
         "Aventador": "modele/aventador.jpg",
@@ -59,74 +59,64 @@ $(document).ready(function(){
         "P1": "modele/p1.jpg"
     };
 
-    // po załadowaniu strony wyświetlają się wszystkie samochody (zdjęcie, marka, model)
-        $.ajax({
-            url: "all.php",
-            method: "POST",
-            success: function (data) {
-                // Parsowanie danych JSON zwróconych z PHP
-                var samochody = JSON.parse(data);
+    // Po załadowaniu strony wyświetlają się wszystkie samochody (zdjęcie, marka, model)
+    $.ajax({
+        url: "all.php",
+        method: "POST",
+        success: function(data) {
+            var samochody = JSON.parse(data);
 
-                if (samochody.length > 0) {
-                    
-                    var carFromList = "";
-                    
+            if (samochody.length > 0) {
+                var carFromList = "";
 
-                    samochody.forEach(function (samochod) {
-                        var zdjecie = samochodyZdjecia[samochod.model];
-                        carFromList += `
-                                <div class="suggestion" data-suggestion="${samochod.marka} ${samochod.model}">
-                                    <table>
-                                        <tr>
-                                            <td><img src="${zdjecie}" alt=" zdjęcie ${samochod.model}" style="width: 150px; height: auto;"></td>
-                                            <td>${samochod.marka} ${samochod.model}</td>
-                                        </tr>
-                                        
-                                    </table>
-                                    
-                                </div>;
-                                <div id="tabelaDiv" style="display: none;"></div>`
-                        
-                    });
-
-                    $("#listaSamochodow").html(carFromList).css("display", "block");
-                } else {
-                    $("#listaSamochodow").css("display", "none");
-                }
-            }
-        });
-    
-        $(document).on('click', '.suggestion', function () {
-            var fullSuggestion = $(this).data('suggestion');  // Pobieramy pełną sugestię
-            var suggestionParts = fullSuggestion.split(' ');   // Dzielimy na części (marka + model)
-        
-            var marka = suggestionParts[0];                    // Pierwsza część to marka
-            var model = suggestionParts.slice(1).join(' ');    // Reszta to model, dołączamy w razie potrzeby
-        
-            console.log("Wybrana marka:", marka);
-            console.log("Wybrany model:", model);
-        
-            // Wysyłamy dane (marka i model) do selected.php
-            $.ajax({
-                url: "selected.php",  // Przekierowanie do selected.php
-                method: "POST",  // Wysłanie danych metodą POST
-                data: { marka: marka, model: model },  // Wysyłanie marki i modelu
-                success: function(response) {
-                    console.log("Odpowiedź z selected.php:", response);  // Sprawdzamy odpowiedź z serwera
-        
-                    // Sprawdzamy, czy odpowiedź zawiera błąd
-                    var wybranySamochod = JSON.parse(response);  // Parsowanie odpowiedzi JSON
-        
-                    // Sprawdzamy, czy w odpowiedzi jest błąd
-                    if(wybranySamochod.error) {
-                        $("#tabelaDiv").html(wybranySamochod.error).css("display", "block");  // Wyświetlamy błąd
-                    } else {
-                        // Jeśli nie ma błędu, wyświetlamy szczegóły samochodu
-                        var zdjecie = samochodyZdjecia[wybranySamochod.model];  // Pobieramy odpowiednie zdjęcie
-                        var tabela = `
+                samochody.forEach(function(samochod) {
+                    var zdjecie = samochodyZdjecia[samochod.model];
+                    carFromList += `
+                        <div class="suggestion" data-suggestion="${samochod.marka} ${samochod.model}">
                             <table>
                                 <tr>
-                                    <td><img src="${zdjecie}" alt="Zdjęcie ${wybranySamochod.model}" style="width: 150px; height: auto;"></td>
+                                    <td><img src="${zdjecie}" alt=" zdjęcie ${samochod.model}" style="width: 150px; height: auto;"></td>
+                                    <td>${samochod.marka} ${samochod.model}</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div id="tabelaDiv${samochod.marka}${samochod.model}" class="tabela" style="display:none;"></div> `;
+                });
+
+                $("#listaSamochodow").html(carFromList).css("display", "block");
+            } else {
+                $("#listaSamochodow").css("display", "none");
+            }
+        }
+    });
+
+    $(document).on('click', '.suggestion', function() {
+        var fullSuggestion = $(this).data('suggestion');  // Pobieramy pełną sugestię
+        var suggestionParts = fullSuggestion.split(' ');   // Dzielimy na części (marka + model)
+
+        var marka = suggestionParts[0];                    
+        var model = suggestionParts.slice(1).join(' ');    
+
+        // Zamykamy tabelę innych samochodów, jeśli jakaś jest otwarta
+        $(".tabela").hide();
+
+        // Wysyłamy dane (marka i model) do selected.php
+        $.ajax({
+            url: "selected.php",  // Przekierowanie do selected.php
+            method: "POST",  // Wysłanie danych metodą POST
+            data: { marka: marka, model: model },  // Wysyłanie marki i modelu
+            success: function(response) {
+                var wybranySamochod = JSON.parse(response);  // Parsowanie odpowiedzi JSON
+
+                if (wybranySamochod.error) {
+                    $("#tabelaDiv" + marka + model).html(wybranySamochod.error).css("display", "block");
+                } else {
+                    var zdjecie = samochodyZdjecia[wybranySamochod.model];  
+                    var tabela = `
+                        <div class="table-responsive mt-3">
+                            <table class="table table-bordered table-striped"> 
+                                <tr>
+                                    
                                     <td><div class="marka">${wybranySamochod.marka}</div></td>
                                     <td><div class="model">${wybranySamochod.model}</div></td>
                                     <td><div class="rocznik">${wybranySamochod.roczniki}</div></td>
@@ -136,22 +126,13 @@ $(document).ready(function(){
                                     <td><div class="kraj">${wybranySamochod.kraj}</div></td>
                                 </tr>
                             </table>
-                        `;
-                        $("#tabelaDiv").html(tabela).css("display", "block");  // Wyświetlamy szczegóły w tabeli
-                    }
+                        </div>`;
+                    
+                    // Tabela jest wyświetlana w odpowiednim miejscu
+                    $("#tabelaDiv" + marka + model).html(tabela).css("display", "block");
                 }
-            });
-            $(document).click(function (event) {
-                // Sprawdzamy, czy kliknięcie miało miejsce poza divem .suggestion
-                if (!$(event.target).closest('.suggestion').length) {
-                    // Jeśli kliknięcie nie miało miejsca w obrębie .suggestion, ukrywamy tabelę
-                    $(".suggestion .tabela").css("display", "none");
-                }
-            });
+            }
         });
-        
-        
+    });
+
 });
-
-
-
