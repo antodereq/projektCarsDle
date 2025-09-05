@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>carsDle - O autorze</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body class="bg-light">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">cars<span class="text-danger">Dle</span>.pl</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Przełącz nawigację">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto gap-1">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Graj</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="carsDle.html">Standard Mode</a></li>
+              <li><a class="dropdown-item text-danger" href="endlessMode.html">Endless Mode</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="jakGrac.html">Jak grać?</a></li>
+          <li class="nav-item"><a class="nav-link" href="bazaSamochodow.html">Baza samochodów</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="oAutorze.html">O autorze i stronie</a></li>
+          <li class="nav-item"><a class="nav-link" href="zglosBlad.php">Zgłoś błąd</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Treść -->
+  <main class="container my-4">
+    <header class="text-center fw-bold mb-4">
+      <h1 class="display-6">cars<span class="text-danger">Dle</span>.pl</h1>
+    </header>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="card shadow-sm p-3 mb-4">
+          <div class="row g-3 align-items-start">
+            <div class="col-md-5 text-center">
+              <img src="img/antoniUlaczyk.jpg" alt="Zdjęcie autora" class="img-fluid rounded shadow">
+              <p class="mt-2 text-muted small mb-0">Pagani Zonda Revo Barchetta, Modena 2024</p>
+            </div>
+            <div class="col-md-7">
+              <h2 class="h4">O autorze</h2>
+              <p>Witam Cię na mojej stronie! Dzięki, że jesteś!</p>
+              <p>Nazywam się Antoni Ulaczyk, uczę się w czwartej klasie technikum w Katowicach na kierunku programista.</p>
+              <p>Pomysł na grę narodził się z mojej pasji do motoryzacji, sportowych samochodów oraz programowania.</p>
+              <p>Mocno inspirowałem się stroną <a href="https://genshindle.com">genshindle.com</a> – polecam!</p>
+              <p>To mój pierwszy większy projekt, dlatego liczę na feedback. Napisz: <br><strong>ulaczykantoni@gmail.com</strong> lub skorzystaj z <a href="zglosBlad.php">formularza zgłoszeń</a>.</p>
+              <p>Dziękuję za to, że grasz w carsDle!</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card shadow-sm p-3">
+          <h2 class="h4">O stronie</h2>
+          <p>Strona powstała w HTML, CSS, PHP oraz JavaScript/jQuery.</p>
+          <p>Grafiki pochodzą m.in. z:
+            <a href="https://pixabay.com/pl/">Pixabay</a>,
+            <a href="https://www.pexels.com/pl-pl/">Pexels</a>,
+            <a href="https://unsplash.com/">Unsplash</a>.
+          </p>
+          <p>Wszystko jest legalne; jeśli coś budzi wątpliwość, napisz maila.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

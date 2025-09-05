@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap');
+
+html, body { overflow-x: hidden; }
+.navbar-brand { font-family: 'Oswald', system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif; }
+
+/* WYSZUKIWARKA */
+#pole_szukania::placeholder { color:#888; font-style: italic; }
+
+/* SUGESTIE (list-group) */
+#sugestie .list-group-item { cursor: pointer; }
+#sugestie .car-thumb { width: 72px; height: auto; flex-shrink: 0; }
+#sugestie .model-name { font-weight: 600; }
+
+/* WIN OVERLAY */
+.win-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.75); z-index: 3000; padding: 16px; }
+.win-overlay.show { display: block; }
+.win-overlay .win-close {
+  position: absolute; top: 12px; right: 12px;
+  width: 40px; height: 40px; border: none; border-radius: 999px;
+  background: rgba(0,0,0,.55); color: #fff; font-size: 1.25rem;
+  display: grid; place-items: center; cursor: pointer;
+}
+.win-overlay .win-close:focus { outline: 2px solid #fff; outline-offset: 2px; }
+.win-overlay .win-card { max-width: 920px; margin: 6vh auto 0 auto; background: #f8f9fa; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); overflow: hidden; }
+.win-card .win-body { padding: 16px; }
+.win-card .win-img { width: 100%; height: auto; display: block; }
+.win-card .win-title { font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: 700; }
+.win-card .countdown { font-size: .95rem; }
+
+/* ====== TABELA HISTORII (desktop/tablet) ====== */
+.car-specs-table { table-layout: fixed; }
+.car-specs-table td, .car-specs-table th {
+  white-space: normal;
+  word-break: break-word;
+  vertical-align: middle;
+}
+.logo-cell img { width: 64px; height: 64px; object-fit: contain; display: block; margin: 0 auto; }
+
+/* ====== KARTY HISTORII (mobile) ====== */
+.history-card { border: 1px solid #dee2e6; border-radius: 12px; padding: 12px; margin-bottom: 12px; background: #fff; }
+.history-card .brand-row { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.history-card .brand-row img { width: 44px; height: 44px; object-fit: contain; }
+.history-card .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.history-card .chip { border-radius: 8px; padding: 8px; text-align: center; font-size: 0.9rem; }
+
+/* KOLORY pól zgodności */
+.cell-ok      { background-color: olivedrab !important;   color: #fff; }
+.cell-partial { background-color: goldenrod !important;   color: #fff; }
+.cell-bad     { background-color: darkred !important;     color: #fff; }
+
+/* Drobiazgi */
+.countdown { min-height: 1.25rem; }
+
+@media (max-width: 768px) {
+  #sugestie .car-thumb { width: 56px; }
+}
