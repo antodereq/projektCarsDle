@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>carsDle - Baza samochodów</title>
+  <link rel="icon" href="img/favicon.png" type="image/svg+xml">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -42,14 +43,26 @@
   <!-- Treść -->
   <main class="container my-4">
     <header class="text-center mb-3">
-      <h1 class="display-6 fw-bold">cars<span class="text-danger">Dle</span>.pl</h1>
+      <h1 class="site-title display-6 fw-bold">cars<span class="text-danger">Dle</span>.pl</h1>
       <p class="text-muted mb-0">Kliknij na samochód, aby zobaczyć specyfikację</p>
     </header>
 
-    <!-- Lista będzie renderowana przez carsList.js -->
-    <!-- Jeśli carsList.js tworzy kafelki, warto by dodawał elementom klasę .col -->
+    <!-- Siatka kart (JS wypełni) -->
     <div id="listaSamochodow" class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3"></div>
   </main>
+
+  <!-- Duże okno szczegółów -->
+  <div class="modal fade" id="carModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="carModalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zamknij"></button>
+        </div>
+        <div class="modal-body" id="carModalBody"><!-- dynamic --></div>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
